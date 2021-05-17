@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>P O M O D O R O</title>
+	<script>
+    	var second = 59;
+    	var minute = 24;
+    	var x = 1; 
+
+    	var pomodoro;
+    	var milesimo = 1000;
+
+    	function start(){
+    		pomodoro = setInterval(() => { contagem(); }, milesimo);
+    	}
+
+    	function pause(){
+    		clearInterval(pomodoro);
+    	}
+
+    	function stop(){
+    		clearInterval(pomodoro);
+    		second = 59;
+    		minute = 24;
+    		x = 1;
+
+
+    		document.getElementById('conteiner').innerText = '25:00';
+    	}
+    	function pausas(){
+    		x++;
+
+    		if (x < 4){
+    			minute = 4;
+    			second = 59;
+    			contagem();
+    		}
+
+    		else if (x == 4){
+    			minute = 19;
+    			second = 59;
+    			x = 1;
+    			contagem();
+    		}
+
+    	}
+
+
+    	function contagem(){
+    		second = second - 1;
+
+    		if (second == 0){
+    			second = 59;
+    			minute = minute - 1;
+    		}
+
+    		if (minute < 0){
+    			pausas();
+    		}
+    		
+    		var format = (minute < 10 ? '0' + minute : minute) + ':' + (second < 10 ? '0' + second : second);
+    		document.getElementById('conteiner').innerText = format;
+    		return format;
+    	}
+	</script>
+</head>
+<body style="background-color: #0f0f0f; padding: 0px;">
+	<div style="text-align: center;">
+		<h1 style="color: #8f8f8f">П О M И Д O P</h1>
+		<h5 style="color: #5f5f5f">P  O  M  O  D  O  R  O</h5>
+		<h6 style="color: #8f8f8f; margin: 0px; margin-left: 10%;text-align: left;">> DOUBLE-CLICK TOMATO TO START;</h6>
+		<h6 style="color: #8f8f8f; margin: 0px; margin-left: 10%;text-align: left;">> ONE CLICK TO PAUSE;</h6>
+		<div onclick="stop()" style="margin: 10px; margin-left: 1px;">
+			<h6 style="color: #ff9f9f; margin: 0px; margin-left: 10%;text-align: left;">> CLICK HERE TO RESTART;</h6>
+		</div>
+		<div>
+			<img style="max-width: 60%; max-height: 60%" onclick="pause()" ondblclick="start()" src="pomodoro.png">
+		</div>
+		<h1 style="color: #5f5f5f; " id="conteiner">25:00</h1>
+		<h6 style="color: #5f5f5f; font-family: ;">Created by Henrique B</h6>
+	</div>
+</body>
+</html>
+
