@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/Henriquebandeira/Pomodoro/master/pomodoro-icon.png" width="100"/>
 
 <h6>Electron</h6>
-<img src="https://raw.githubusercontent.com/Henriquebandeira/Pomodoro/master/PREVIEW.png"/>
+<img style="text-align: center;"src="https://raw.githubusercontent.com/Henriquebandeira/Pomodoro/master/PREVIEW.png"/>
 
 Pomodoro is a very simple brutalist design project
 
